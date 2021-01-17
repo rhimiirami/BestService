@@ -31,16 +31,16 @@ public class ClientService {
 		   
 	   }
 	   
-	   public void getClientUpdateById(Long id) {
-			 clientRepository.getClientUpdateById(id);
+	   public Client getClientUpdateById(Long id) {
+			 return clientRepository.getClientUpdateById(id);
 			   
 		   }
 	   
 	public  void Update(@RequestBody Client client) {
-		Client clients = getClientUpdateBy(id);
-		client.setEmail(client.getEmail());
+		Client clients = getClientUpdateById(client.getId());
+		clients.setEmail(clients.getEmail());
 	
-		 clientRepository.save(client);
+		  clientRepository.save(client);
 	}
 	   
 	   public void delete(Long id) {
