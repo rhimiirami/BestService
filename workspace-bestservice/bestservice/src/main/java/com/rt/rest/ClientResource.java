@@ -13,35 +13,27 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rt.entities.Client;
 import com.rt.service.ClientService;
 
-
-
-
 @RestController
 @RequestMapping("/api")
 public class ClientResource {
-	
-	
+
 	@Autowired
-	private ClientService clientService ;
-	
-	
+	private ClientService clientService;
+
 	@GetMapping("/findAllClients")
-	public List<Client> findAll(){
+	public List<Client> findAll() {
 		return clientService.getAll();
 	}
-	
-	
+
 	@GetMapping("/findClientById/{id}")
-	public Optional<Client> findClientById(@PathVariable Long id){
+	public Optional<Client> findClientById(@PathVariable Long id) {
 		return clientService.getClientById(id);
 	}
-	
+
 	@DeleteMapping("/deleteClientById/{id}")
-	public  void deleteClientById(@PathVariable Long id){
-		 clientService.delete(id);
-	
+	public void deleteClientById(@PathVariable Long id) {
+		clientService.delete(id);
+
 	}
-	
-	
-	
+
 }
